@@ -4,42 +4,112 @@
     <link rel="icon" href="gfx/imajp/logo.jpg">
     <title>人民公社网（中国新左文库）</title>
     <style>
+        :root {
+            --primary-red: #c00;
+            --dark-red: #8b0000;
+            --light-bg: #fff1f1;
+            --column-bg: #ffeded;
+        }
         body {
             font-family: 'SimSun', '宋体', serif;
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #fff1f1;
-            color: #8b0000;
+            background-color: var(--light-bg);
+            color: var(--dark-red);
+            line-height: 1.6;
         }
-        h1, h2 {
-            color: #c00;
+        h1, h2, h3 {
+            color: var(--primary-red);
             text-align: center;
         }
+        h1 {
+            border-bottom: 2px solid var(--primary-red);
+            padding-bottom: 10px;
+        }
+        h2 {
+            border-left: 5px solid var(--primary-red);
+            padding-left: 10px;
+            text-align: left;
+        }
         p {
-            line-height: 1.6;
             text-align: justify;
+            margin: 15px 0;
         }
         img {
             display: block;
-            margin: 0 auto;
-            border: 3px solid #8b0000;
+            margin: 20px auto;
+            border: 3px solid var(--dark-red);
+            max-width: 100%;
+            height: auto;
         }
         a {
-            color: #c00;
+            color: var(--primary-red);
             text-decoration: none;
+            font-weight: bold;
         }
         a:hover {
-            text-decoration: underline;
             color: #f00;
+            text-decoration: underline;
+        }
+        .warning {
+            color: #d40000;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            border: 1px dashed #c00;
+            background-color: var(--column-bg);
+        }
+        .poem {
+            background-color: var(--column-bg);
+            padding: 15px;
+            border-left: 3px solid var(--primary-red);
+            margin: 20px 0;
+        }
+        .contact {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .column {
+            background-color: var(--column-bg);
+            padding: 15px;
+            border: 1px solid var(--primary-red);
+            border-radius: 5px;
+        }
+        .column h3 {
+            margin-top: 0;
+            border-bottom: 1px solid var(--primary-red);
+            padding-bottom: 10px;
+        }
+        .column ul {
+            padding-left: 20px;
+        }
+        .column li {
+            margin-bottom: 8px;
+        }
+        .important-news {
+            background-color: #ffdbdb;
+            padding: 15px;
+            border: 2px dashed var(--primary-red);
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
     <h1>✧ 人民公社网 ✧</h1>
     <p class="warning">※ 请勿将网站私自传播，以免造成严重后果</p>
-    <p>制作人：郑涵语</p>
-<p>邮箱：wewewe20222022@163.com</p>
+    
+    <div class="contact">
+        <p>制作人：郑涵语</p>
+        <p>联系邮箱：<a href="mailto:wewewe20222022@163.com">wewewe20222022@163.com</a></p>
+    </div>
     
     <div class="poem">
         <h2>《造反最光荣》</h2>
@@ -61,10 +131,85 @@
 
     <img src="gfx/shouye/xx.jpg" alt="革命宣传画" width="918" height="540">
     
+    <!-- 重要通知专栏 -->
+    <div class="important-news">
+        <h3>★ 最新公告 ★</h3>
+        
+        <p>【纪念毛主席诞辰130周年征文活动】投稿邮箱：wewewe20222022@163.com</p>
+    </div>
+    <p>(小声嘀咕）绝大部分还未实装啦，所以所谓核心文章其实就是为数不多的文章啦（被打）</p>
+
+    <!-- 新增专题专栏 -->
+    <div class="columns">
+        <div class="column">
+            <h3>▌ 红色文化</h3>
+            <ul>
+                <li><a href="red-song.html">歌曲大全</a></li>
+                <li><a href="maozedong-poem.html">毛泽东诗词赏析</a></li>
+                <li><a href="propaganda-poster.html">革命宣传画艺术</a></li>
+                <li><a href="red-movie.html">红色电影推荐</a></li>
+            </ul>
+        </div>
+        
+        <div class="column">
+            <h3>▌ 阶级斗争</h3>
+            <ul>
+                <li><a href="worker-movement.html">当代工人运动纪实</a></li>
+                <li><a href="theory.html">马列主义基础理论</a></li>
+                <li><a href="peasant-study.html">三农问题研究</a></li>
+                <li><a href="class-analysis.html">中国阶级现状分析</a></li>
+            </ul>
+        </div>
+        
+        <div class="column">
+            <h3>▌ 历史文献</h3>
+            <ul>
+                <li><a href="cultural-revolution.html">文化大革命档案</a></li>
+                <li><a href="mao-works.html">毛泽东选集电子版</a></li>
+                <li><a href="party-history.html">中共党史重大事件</a></li>
+                <li><a href="international.html">国际共产主义运动</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 特色专栏 -->
+    <div class="columns">
+        <div class="column">
+            <h3>▌ 工农论坛</h3>
+            <ul>
+                <li><a href="worker-voice.html">工人之声</a></li>
+                <li><a href="farmer-voice.html">农民之友</a></li>
+                <li><a href="student-discuss.html">青年学生讨论区</a></li>
+                <li><a href="experience.html">革命经验交流</a></li>
+            </ul>
+        </div>
+        
+        <div class="column">
+            <h3>▌ 革命文艺</h3>
+            <ul>
+                <li><a href="literature.html">革命文学创作</a></li>
+                <li><a href="art.html">工农兵美术作品</a></li>
+                <li><a href="drama.html">红色戏剧剧本</a></li>
+                <li><a href="photography.html">纪实摄影</a></li>
+            </ul>
+        </div>
+        
+        <div class="column">
+            <h3>▌ 理论学习</h3>
+            <ul>
+                <li><a href="marx-course.html">马克思主义基础课程</a></li>
+                <li><a href="mao-study.html">毛泽东思想研究</a></li>
+                <li><a href="modern-theory.html">当代左翼理论</a></li>
+                <li><a href="book-recommend.html">红色书籍推荐</a></li>
+            </ul>
+        </div>
+    </div>
+
     <section>
-        <h1>✿ 文章列表 ✿</h1>
+        <h1>✿ 核心文章 ✿</h1>
         <h2><a href="sidaziyou.html">► 张宏良：中国四大自由的历史贡献不亚于四大发明</a></h2>
         <h2><a href="huanxing.html">► 新左派：重建人本精神的思想之光</a></h2>
     </section>
+
 
 </body></html>
