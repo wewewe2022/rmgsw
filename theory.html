@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="gfx/imajp/logo.jpg">
+    <title>马列主义基础理论 - 人民公社网</title>
+    <style>
+        :root {
+            --primary-red: #c00;
+            --dark-red: #8b0000;
+            --marx-blue: #003366;
+            --light-bg: #fff1f1;
+        }
+        body {
+            font-family: 'SimSun', '宋体', serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--light-bg);
+            color: #333;
+            line-height: 1.8;
+        }
+        h1 {
+            color: var(--dark-red);
+            text-align: center;
+            font-size: 2.2em;
+            border-bottom: 3px solid var(--dark-red);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        .theory-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        .theory-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .theory-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .card-header {
+            background-color: var(--marx-blue);
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-content h3 {
+            color: var(--marx-blue);
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 10px;
+        }
+        .card-content ul {
+            padding-left: 20px;
+        }
+        .card-content li {
+            margin-bottom: 10px;
+        }
+        .quote-block {
+            font-style: italic;
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-left: 3px solid var(--dark-red);
+            margin: 15px 0;
+        }
+        .classics-list {
+            columns: 2;
+            column-gap: 30px;
+        }
+        .nav-buttons {
+            text-align: center;
+            margin: 50px 0;
+        }
+        .nav-buttons a {
+            display: inline-block;
+            padding: 10px 25px;
+            margin: 0 10px;
+            background-color: var(--primary-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>◈ 马列主义基础理论 ◈</h1>
+
+    <div class="quote-block">
+        "理论一经掌握群众，也会变成物质力量" —— 马克思《<黑格尔法哲学批判>导言》<br>
+        "没有革命的理论，就不会有革命的运动" —— 列宁《怎么办？》
+    </div>
+
+    <div class="theory-container">
+        <!-- 唯物辩证法 -->
+        <div class="theory-card">
+            <div class="card-header">唯物辩证法三大规律</div>
+            <div class="card-content">
+                <h3>对立统一规律</h3>
+                <ul>
+                    <li>矛盾是事物发展的根本动力</li>
+                    <li>矛盾的普遍性与特殊性</li>
+                    <li>主要矛盾与次要矛盾</li>
+                </ul>
+                
+                <h3>质量互变规律</h3>
+                <ul>
+                    <li>量变是质变的必要准备</li>
+                    <li>质变是量变的必然结果</li>
+                    <li>改革与革命的关系</li>
+                </ul>
+                
+                <h3>否定之否定规律</h3>
+                <ul>
+                    <li>螺旋式上升的发展过程</li>
+                    <li>共产主义是社会发展的必然阶段</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 剩余价值 -->
+        <div class="theory-card">
+            <div class="card-header">剩余价值学说</div>
+            <div class="card-content">
+                <h3>资本主义剥削本质</h3>
+                <ul>
+                    <li>可变资本(v)与不变资本(c)</li>
+                    <li>绝对剩余价值生产</li>
+                    <li>相对剩余价值生产</li>
+                </ul>
+                
+                <h3>现代形式演变</h3>
+                <ul>
+                    <li>数字资本主义下的劳动剥削</li>
+                    <li>平台经济与零工剥削</li>
+                    <li>全球价值链中的剩余价值转移</li>
+                </ul>
+                
+                <div class="quote-block">
+                    "资本来到世间，从头到脚，每个毛孔都滴着血和肮脏的东西"<br>
+                    —— 马克思《资本论》第一卷
+                </div>
+            </div>
+        </div>
+
+        <!-- 无产阶级专政 -->
+        <div class="theory-card">
+            <div class="card-header">无产阶级专政理论</div>
+            <div class="card-content">
+                <h3>列宁的发展</h3>
+                <ul>
+                    <li>《国家与革命》核心思想</li>
+                    <li>巴黎公社原则</li>
+                    <li>苏维埃政权形式</li>
+                </ul>
+                
+                <h3>毛泽东的贡献</h3>
+                <ul>
+                    <li>人民民主专政理论</li>
+                    <li>文化大革命实践</li>
+                    <li>防止资本主义复辟</li>
+                </ul>
+                
+                <h3>当代挑战</h3>
+                <ul>
+                    <li>颜色革命与政权颠覆</li>
+                    <li>新自由主义攻势</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 更多理论卡片... -->
+    </div>
+
+    <h2 style="color:var(--marx-blue);text-align:center;">■ 马列主义经典著作选读 ■</h2>
+    <div class="card-content classics-list">
+        <ul>
+            <li><strong>马克思/恩格斯：</strong>
+                <ul>
+                    <li>《共产党宣言》(1848)</li>
+                    <li>《资本论》(1867-1894)</li>
+                    <li>《哥达纲领批判》(1875)</li>
+                </ul>
+            </li>
+            <li><strong>列宁：</strong>
+                <ul>
+                    <li>《帝国主义论》(1916)</li>
+                    <li>《国家与革命》(1917)</li>
+                    <li>《怎么办？》(1902)</li>
+                </ul>
+            </li>
+            <li><strong>毛泽东：</strong>
+                <ul>
+                    <li>《矛盾论》(1937)</li>
+                    <li>《实践论》(1937)</li>
+                    <li>《关于正确处理人民内部矛盾》(1957)</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="index.html">返回人民公社网</a>
+    </div>
+
+    <div style="text-align:center;color:#666;margin-top:50px;font-size:0.9em;">
+        理论指导实践 · 实践发展理论<br>
+        本栏目资料选自中央编译局《马克思恩格斯选集》（人民出版社2012年版）
+    </div>
+</body>
+</html>

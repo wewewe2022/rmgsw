@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="gfx/imajp/logo.jpg">
+    <title>毛泽东诗词选 - 人民公社网</title>
+    <style>
+        :root {
+            --primary-red: #c00;
+            --dark-red: #8b0000;
+            --gold-yellow: #d4a017;
+            --light-bg: #fff1f1;
+        }
+        body {
+            font-family: 'SimSun', '宋体', serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--light-bg);
+            color: #333;
+            line-height: 1.8;
+            background-image: url('gfx/mao-bg.png');
+            background-attachment: fixed;
+            background-size: contain;
+        }
+        h1 {
+            color: var(--dark-red);
+            text-align: center;
+            font-size: 2.2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            border-bottom: 3px double var(--primary-red);
+            padding-bottom: 15px;
+        }
+        .poem-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .poem-card {
+            background-color: rgba(255,255,255,0.9);
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--primary-red);
+            transition: transform 0.3s;
+        }
+        .poem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .poem-title {
+            color: var(--dark-red);
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 10px;
+        }
+        .poem-date {
+            font-style: italic;
+            text-align: right;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .poem-content {
+            font-family: 'KaiTi', '楷体', serif;
+            font-size: 1.1em;
+            line-height: 2;
+            text-align: center;
+            white-space: pre-line;
+        }
+        .poem-annotation {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 3px solid var(--gold-yellow);
+            font-size: 0.9em;
+        }
+        .header-quote {
+            text-align: center;
+            font-style: italic;
+            color: var(--dark-red);
+            margin: 20px 0;
+            padding: 10px;
+            border-top: 1px solid var(--primary-red);
+            border-bottom: 1px solid var(--primary-red);
+        }
+        .historical-context {
+            background-color: rgba(200,0,0,0.1);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        .nav-buttons {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .nav-buttons a {
+            display: inline-block;
+            padding: 8px 20px;
+            margin: 0 10px;
+            background-color: var(--primary-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>☆ 毛泽东诗词全集 ☆</h1>
+
+    <div class="header-quote">
+        "诗言志，歌咏言" —— 毛泽东《在延安文艺座谈会上的讲话》<br>
+        "革命的政治内容和尽可能完美的艺术形式的统一"
+    </div>
+
+    <div class="historical-context">
+        <h3>■ 创作背景 ■</h3>
+        <p>毛泽东诗词创作跨越中国革命各个历史时期，从1920年代到1960年代，记录了中国共产党的革命历程。这些作品既是文学珍品，也是革命历史的生动写照，展现了无产阶级革命家的豪迈气魄和诗人的浪漫情怀。</p>
+    </div>
+
+    <div class="poem-container">
+        <!-- 第一首 -->
+        <div class="poem-card">
+            <div class="poem-title">沁园春·长沙</div>
+            <div class="poem-date">1925年</div>
+            <div class="poem-content">
+                独立寒秋，湘江北去，橘子洲头。
+                看万山红遍，层林尽染；
+                漫江碧透，百舸争流。
+                鹰击长空，鱼翔浅底，
+                万类霜天竞自由。
+                
+                怅寥廓，问苍茫大地，
+                谁主沉浮？
+            </div>
+            <div class="poem-annotation">
+                ★ 创作于大革命时期，展现了青年毛泽东"改造中国与世界"的宏伟抱负<br>
+                ★ "谁主沉浮"成为中国人民解放斗争的历史叩问
+            </div>
+        </div>
+
+        <!-- 第二首 -->
+        <div class="poem-card">
+            <div class="poem-title">七律·长征</div>
+            <div class="poem-date">1935年10月</div>
+            <div class="poem-content">
+                红军不怕远征难，
+                万水千山只等闲。
+                五岭逶迤腾细浪，
+                乌蒙磅礴走泥丸。
+                
+                金沙水拍云崖暖，
+                大渡桥横铁索寒。
+                更喜岷山千里雪，
+                三军过后尽开颜。
+            </div>
+            <div class="poem-annotation">
+                ★ 记录红军二万五千里长征的伟大壮举<br>
+                ★ 入选中国初中语文教材（人教版八年级上册）
+            </div>
+        </div>
+
+        <!-- 第三首 -->
+        <div class="poem-card">
+            <div class="poem-title">沁园春·雪</div>
+            <div class="poem-date">1936年2月</div>
+            <div class="poem-content">
+                北国风光，千里冰封，万里雪飘。
+                望长城内外，惟余莽莽；
+                大河上下，顿失滔滔。
+                
+                江山如此多娇，
+                引无数英雄竞折腰。
+                惜秦皇汉武，略输文采；
+                唐宗宋祖，稍逊风骚。
+            </div>
+            <div class="poem-annotation">
+                ★ 1945年重庆谈判期间发表，震动国民党政界文坛<br>
+                ★ "数风流人物，还看今朝"成为革命豪情的最佳写照
+            </div>
+        </div>
+
+        <!-- 第四首 -->
+        <div class="poem-card">
+            <div class="poem-title">七律·人民解放军占领南京</div>
+            <div class="poem-date">1949年4月</div>
+            <div class="poem-content">
+                钟山风雨起苍黄，
+                百万雄师过大江。
+                虎踞龙盘今胜昔，
+                天翻地覆慨而慷。
+                
+                宜将剩勇追穷寇，
+                不可沽名学霸王。
+                天若有情天亦老，
+                人间正道是沧桑。
+            </div>
+            <div class="poem-annotation">
+                ★ 庆祝南京解放，宣告蒋家王朝覆灭<br>
+                ★ "人间正道是沧桑"成为历史唯物主义的名句
+            </div>
+        </div>
+
+        <!-- 更多诗词卡片... -->
+    </div>
+
+    <div class="historical-context">
+        <h3>■ 艺术特色 ■</h3>
+        <p>毛泽东诗词继承了中国古典诗词的优秀传统，又赋予其全新的革命内容。其作品充满革命英雄主义和革命乐观主义精神，善于将自然景物描写与革命情怀抒发相结合，形成了雄浑豪放、气势磅礴的独特风格。</p>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="index.html">返回人民公社网</a>
+    </div>
+
+    <div class="footer">
+        人民公社网 · 红色文化资料库 © 2024<br>
+        本页面内容选自《毛泽东诗词集》（中央文献出版社1996年版）
+    </div>
+</body>
+</html>

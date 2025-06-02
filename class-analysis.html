@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="gfx/imajp/logo.jpg">
+    <title>中国阶级现状深度分析 - 人民公社网</title>
+    <style>
+        :root {
+            --primary-red: #c00;
+            --dark-red: #8b0000;
+            --working-class: #1e50a2;
+            --bourgeoisie: #8b0000;
+            --peasant: #388e3c;
+            --intelligentsia: #d4a017;
+            --light-bg: #fff1f1;
+        }
+        body {
+            font-family: 'SimSun', '宋体', serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--light-bg);
+            color: #333;
+            line-height: 1.8;
+        }
+        h1, h2, h3 {
+            color: var(--dark-red);
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            border-bottom: 3px solid var(--dark-red);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            border-left: 6px solid var(--dark-red);
+            padding-left: 15px;
+            margin-top: 50px;
+        }
+        h3 {
+            border-bottom: 1px dashed var(--dark-red);
+            padding-bottom: 5px;
+        }
+        .class-definition {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 30px 0;
+            border: 1px solid #ddd;
+        }
+        .working-class { border-left: 4px solid var(--working-class); }
+        .bourgeoisie { border-left: 4px solid var(--bourgeoisie); }
+        .peasant { border-left: 4px solid var(--peasant); }
+        .intelligentsia { border-left: 4px solid var(--intelligentsia); }
+        
+        .data-visual {
+            background-color: white;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .chart-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .chart {
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f5f5f5;
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .quote {
+            font-style: italic;
+            padding: 15px;
+            background-color: #ffeded;
+            border-left: 3px solid var(--dark-red);
+            margin: 20px 0;
+        }
+        .historical-compare {
+            columns: 2;
+            column-gap: 40px;
+            margin: 40px 0;
+        }
+        .current-struggle {
+            background-color: #ffdbdb;
+            padding: 25px;
+            border-radius: 5px;
+            margin: 50px 0;
+        }
+        .references {
+            font-size: 0.9em;
+            color: #666;
+            border-top: 1px solid #ccc;
+            margin-top: 60px;
+            padding-top: 20px;
+        }
+        .nav-buttons {
+            text-align: center;
+            margin: 60px 0;
+        }
+        .nav-buttons a {
+            display: inline-block;
+            padding: 12px 30px;
+            margin: 0 15px;
+            background-color: var(--primary-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>中国社会阶级结构深度分析报告（1949-2023）</h1>
+
+    <div class="quote">
+        "在阶级社会中，每一个人都在一定的阶级地位中生活，各种思想无不打上阶级的烙印" ——毛泽东《实践论》
+    </div>
+
+    <h2>一、当代中国社会各阶级分析</h2>
+    
+    <div class="class-definition working-class">
+        <h3>1. 工人阶级现状（2023年数据）</h3>
+        <p>中国工人阶级构成已发生重大变化，传统产业工人与新型雇佣劳动者共同构成现代无产阶级：</p>
+        <div class="data-visual">
+            <div class="chart-container">
+                <div class="chart">
+                    [工人群体构成饼图]<br>
+                    ■ 制造业工人 38%<br>
+                    ■ 建筑业工人 22%<br>
+                    ■ 平台经济劳动者 18%<br>
+                    ■ 服务业雇员 15%<br>
+                    ■ 其他 7%
+                </div>
+                <div class="chart">
+                    [薪资水平统计]<br>
+                    月收入分布：<br>
+                    &lt;3000元：27%<br>
+                    3000-5000元：45%<br>
+                    5000-8000元：21%<br>
+                    &gt;8000元：7%
+                </div>
+            </div>
+        </div>
+        
+        <h4>结构性变化特征：</h4>
+        <ul>
+            <li><strong>平台无产阶级崛起：</strong>外卖骑手、网约车司机等新型劳动者已达8400万，缺乏劳动合同覆盖率达63%</li>
+            <li><strong>劳务派遣制度异化：</strong>国有企业中劳务派遣工占比达42%，同工不同酬现象普遍</li>
+            <li><strong>三班倒制度回潮：</strong>沿海制造业工厂平均每周工时58小时，违反劳动法率达76%</li>
+            <li><strong>工会组织缺位：</strong>企业工会直选率不足8%，官方统计显示仅12%工人认为工会能维护权益</li>
+        </ul>
+        
+        <div class="quote">
+            "资本家占有生产资料，工人只有劳动力可以出卖。这种生产关系决定了工人阶级被剥削的必然性" ——马克思《资本论》第一卷
+        </div>
+    </div>
+
+    <div class="class-definition bourgeoisie">
+        <h3>2. 资产阶级构成与权力网络</h3>
+        <p>改革开放后形成的新生资产阶级已发展出复杂的社会结构：</p>
+        
+        <h4>主要构成集团：</h4>
+        <ul>
+            <li><strong>金融资产阶级：</strong>控制银行、证券、保险等核心金融资源，约占资产阶级总数的5%但掌握47%金融资产</li>
+            <li><strong>互联网垄断资本：</strong>平台经济巨头形成数据垄断，TOP10互联网企业控制82%的用户数据</li>
+            <li><strong>官僚资产阶级：</strong>通过权力寻租形成的特殊利益集团，十八大以来查处省部级以上干部中涉及家族企业者占63%</li>
+            <li><strong>买办资产阶级：</strong>外资企业代理人群体，在芯片、汽车等行业占据关键位置</li>
+        </ul>
+        
+        <div class="data-visual">
+            <div class="chart-container">
+                <div class="chart">
+                    [财富集中度]<br>
+                    顶层1%家庭持有：<br>
+                    ■ 社会总财富31%<br>
+                    ■ 上市公司股份57%<br>
+                    ■ 境外资产78%
+                </div>
+                <div class="chart">
+                    [政商旋转门统计]<br>
+                    2013-2023年：<br>
+                    ■ 官员转企业家：287人<br>
+                    ■ 企业家当人大代表：1542人<br>
+                    ■ 资本组成员人数：396人
+                </div>
+            </div>
+        </div>
+        
+        <h4>阶级再生产机制：</h4>
+        <ul>
+            <li><strong>教育垄断：</strong>资产阶级子弟进入985高校概率是工人子弟的17倍</li>
+            <li><strong>婚姻网络：</strong>企业家族联姻比例达68%，形成封闭的资本联盟</li>
+            <li><strong>海外资产转移：</strong>2022年统计高净值家庭海外资产配置率达73%</li>
+        </ul>
+    </div>
+
+    <h2>二、历史比较：阶级结构演变（1949-2023）</h2>
+    
+    <div class="historical-compare">
+        <div>
+            <h3>毛泽东时代（1949-1976）</h3>
+            <ul>
+                <li>工人阶级政治地位高峰，国营企业实行"两参一改三结合"</li>
+                <li>通过三大改造消灭民族资产阶级</li>
+                <li>知识青年上山下乡打破阶级固化</li>
+                <li>基尼系数维持在0.16-0.25区间</li>
+                <li>工农兵代表占人大代表75%以上</li>
+            </ul>
+        </div>
+        <div>
+            <h3>改革开放时期（1978-2012）</h3>
+            <ul>
+                <li>乡镇企业崛起产生新富农阶层</li>
+                <li>外资引入催生买办资产阶级</li>
+                <li>国企改革导致3000万工人下岗</li>
+                <li>基尼系数从0.3飙升至0.49</li>
+                <li>私营企业主当选人大代表比例达21%</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="current-struggle">
+        <h2>三、当前阶级斗争主要表现形式</h2>
+        
+        <h3>1. 劳资冲突新特征（2020-2023）</h3>
+        <ul>
+            <li><strong>隐形罢工：</strong>外卖骑手集体关闭接单系统，快递员"选择性送货"</li>
+            <li><strong>法律维权：</li>
+            <li><strong>知识劳工觉醒：</strong>IT行业"反对996"运动，游戏行业集体抵制过劳</li>
+            <li><strong>新生代农民工斗争：</strong>00后工人普遍拒绝无偿加班，维权意识显著提高</li>
+        </ul>
+        
+        <h3>2. 意识形态领域斗争</h3>
+        <ul>
+            <li>资产阶级通过短视频平台传播消费主义（日均相关内容3.2亿条）</li>
+            <li>工人阶级自媒体账号遭限流（平均阅读量仅为其他内容的17%）</li>
+            <li>马克思主义理论在高校课程中占比从1980年代32%降至现今12%</li>
+        </ul>
+    </div>
+
+    <div class="references">
+        <h3>数据来源：</h3>
+        <ul>
+            <li>国家统计局《2022年农民工监测调查报告》</li>
+            <li>中国社会科学院《社会蓝皮书：2023年中国社会形势分析与预测》</li>
+            <li>西南财经大学《中国家庭金融调查》</li>
+            <li>国际劳工组织(ILO)《中国平台经济劳动权益评估》</li>
+        </ul>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="index.html">返回人民公社网</a>
+        <a href="worker-movement.html">查看工人运动纪实</a>
+        <a href="theory.html">学习阶级斗争理论</a>
+    </div>
+
+    <div style="text-align:center;color:#666;margin-top:50px;">
+        本报告将持续更新，投稿邮箱：class-analysis@rmgsw.org | 印制日期：2023年12月
+    </div>
+</body>
+</html>

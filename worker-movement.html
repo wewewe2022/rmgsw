@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="gfx/imajp/logo.jpg">
+    <title>当代工人运动纪实 - 人民公社网</title>
+    <style>
+        :root {
+            --primary-red: #c00;
+            --dark-red: #8b0000;
+            --light-bg: #fff1f1;
+            --worker-blue: #1e50a2;
+        }
+        body {
+            font-family: 'SimSun', '宋体', serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--light-bg);
+            color: #333;
+            line-height: 1.8;
+        }
+        h1 {
+            color: var(--dark-red);
+            text-align: center;
+            font-size: 2.2em;
+            border-bottom: 3px double var(--primary-red);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        .header-quote {
+            background-color: rgba(30,80,162,0.1);
+            padding: 15px;
+            border-left: 5px solid var(--worker-blue);
+            margin: 20px 0;
+        }
+        .movement-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .movement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-left: 4px solid var(--primary-red);
+        }
+        .movement-title {
+            color: var(--worker-blue);
+            font-weight: bold;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+        .movement-meta {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 10px;
+        }
+        .movement-content img {
+            float: right;
+            margin-left: 20px;
+            margin-bottom: 10px;
+            max-width: 300px;
+            border: 1px solid #ddd;
+        }
+        .archive-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin: 40px 0;
+            border-radius: 5px;
+        }
+        .international {
+            border-left: 4px solid var(--worker-blue);
+        }
+        .domestic {
+            border-left: 4px solid var(--primary-red);
+        }
+        .nav-buttons {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .nav-buttons a {
+            display: inline-block;
+            padding: 10px 25px;
+            margin: 0 10px;
+            background-color: var(--primary-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .strike-stats {
+            font-family: 'Courier New', monospace;
+            background-color: #222;
+            color: #ddd;
+            padding: 15px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>★ 当代工人运动纪实 ★</h1>
+
+    <div class="header-quote">
+        "全世界无产者，联合起来！" ——《共产党宣言》<br>
+        "工人阶级的解放应当是工人阶级自己的事业"
+    </div>
+
+    <!-- 国内工人运动 -->
+    <h2 style="color:var(--primary-red);border-bottom:1px solid var(--primary-red);">▌ 中国工人阶级斗争档案</h2>
+
+    <div class="movement-card domestic">
+        <div class="movement-title">深圳佳士工人维权事件（2018）</div>
+        <div class="movement-meta">
+            <strong>地点：</strong>广东深圳 | <strong>行业：</strong>电子制造 | 
+            <strong>诉求：</strong>组建独立工会、提高待遇
+        </div>
+        <div class="movement-content">
+            <img src="gfx/workers/jiashi.jpg" alt="佳士工人抗议现场">
+            <p>2018年7月，深圳佳士科技股份有限公司工人发起维权斗争，要求组建真正代表工人利益的工会组织。此次事件中，工人学生们提出了"我们是工人，我们要建会"的口号...</p>
+            <p>★ 事件特点：</p>
+            <ul>
+                <li>新生代农民工首次公开挑战"官方工会"体制</li>
+                <li>知识分子与工人阶级联合斗争的新模式</li>
+                <li>引发关于《工会法》落实问题的大讨论</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="movement-card domestic">
+        <div class="movement-title">外卖骑手"被困在算法里"（2020-2023）</div>
+        <div class="movement-meta">
+            <strong>行业：</strong>平台经济 | <strong>形式：</strong>隐形罢工 | 
+            <strong>关键词：</strong>算法霸权
+        </div>
+        <div class="movement-content">
+            <img src="gfx/workers/waimai.jpg" alt="外卖骑手集会">
+            <p>随着平台经济的扩张，全国数百万外卖骑手面临算法系统的残酷剥削。《人物》杂志2020年《外卖骑手，困在系统里》报道揭示：</p>
+            <div class="strike-stats">
+                数据显示：<br>
+                1. 62%骑手每日工作超12小时<br>
+                2. 每单配送时间从2016年的1小时压缩至2022年的28分钟<br>
+                3. 重大交通事故率年均增长37%
+            </div>
+            <p>2023年多地出现骑手集体关闭接单系统的"软性罢工"，迫使平台优化算法规则...</p>
+        </div>
+    </div>
+
+    <!-- 国际工人运动 -->
+    <h2 style="color:var(--worker-blue);border-bottom:1px solid var(--worker-blue);margin-top:50px;">▌ 国际工人阶级斗争前线</h2>
+
+    <div class="movement-card international">
+        <div class="movement-title">美国星巴克工会化运动（2021-今）</div>
+        <div class="movement-meta">
+            <strong>国家：</strong>美国 | <strong>组织：</strong>SBWorkers United | 
+            <strong>成果：</strong>300+门店成立工会
+        </div>
+        <div class="movement-content">
+            <img src="gfx/workers/starbucks.jpg" alt="星巴克工人罢工">
+            <p>2021年8月，纽约州布法罗市两家星巴克门店员工发起工会投票，开启美国服务业工人组织的新浪潮。截至2023年：</p>
+            <ul>
+                <li>全美已超过300家门店投票成立工会</li>
+                <li>公司方面花费至少2亿美元反工会资金</li>
+                <li>涌现"Strike with Us"全国串联罢工</li>
+            </ul>
+            <p>☆ 历史意义：服务业非正规就业工人组织化的重大突破</p>
+        </div>
+    </div>
+
+    <div class="movement-card international">
+        <div class="movement-title">法国反退休改革大罢工（2023）</div>
+        <div class="movement-meta">
+            <strong>持续时间：</strong>78天 | <strong>参与人数：</strong>350万+ | 
+            <strong>工会：</strong>CGT/FO/Solidaires
+        </div>
+        <div class="movement-content">
+            <img src="gfx/workers/france.jpg" alt="法国罢工现场">
+            <p>2023年1月至4月，法国爆发反对提高退休年龄的全国性罢工：</p>
+            <ul>
+                <li>垃圾清运工人持续罢工导致巴黎街头堆积万吨垃圾</li>
+                <li>炼油厂工人罢工造成全国30%加油站短缺</li>
+                <li>文艺工作者封锁剧院、歌剧院等文化场所</li>
+            </ul>
+            <p>★ 斗争启示：工人阶级仍具备瘫痪资本主义正常运转的物质力量</p>
+        </div>
+    </div>
+
+    <!-- 资料档案区 -->
+    <div class="archive-section">
+        <h3>■ 工人运动史料库 ■</h3>
+        <ul>
+            <li><a href="#">《中国工人阶级年度状况报告》（2020-2023）</a></li>
+            <li><a href="#">国际工会联合会(ITUC)全球维权案例库</a></li>
+            <li><a href="#">马克思主义工运理论文献汇编</a></li>
+            <li><a href="#">1921-2023年重大罢工事件时间轴</a></li>
+        </ul>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="index.html">返回人民公社网首页</a>
+    </div>
+
+    <div style="text-align:center;color:#666;margin-top:50px;font-size:0.9em;">
+        ※ 本档案根据公开资料整理，持续更新中 ※<br>
+        投稿邮箱：wewewe20222022@163.com
+    </div>
+
+</body></html>
