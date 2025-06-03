@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html><head>
+<style>
+/* 报刊专属样式 - 报纸复古风 */
+.newspaper-section {
+    position: relative;
+    margin-top: 50px;
+    padding: 30px;
+    background: linear-gradient(to bottom, #fffdf0, #f9f1d3);
+    border: 8px double var(--dark-red);
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.4);
+    font-family: 'STSong', 'SimSun', serif;
+    transform: rotate(0.5deg);
+    z-index: 20;
+}
+
+.newspaper-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="5" y="45" font-size="22" fill="%23d60000">内部参考</text><text x="5" y="75" font-size="22" fill="%238b0000">注意保管</text><rect width="100" height="100" stroke="%23d60000" stroke-width="2" fill="none"/></svg>');
+    opacity: 0.7;
+}
+
+.newspaper-header {
+    position: relative;
+    text-align: center;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    border-bottom: 3px double var(--dark-red);
+}
+
+.newspaper-header::after {
+    content: "★";
+    color: var(--dark-red);
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(20deg);
+    font-size: 24px;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+.newspaper-title {
+    font-size: 3.8rem;
+    font-weight: bold;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--dark-red);
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+    margin-bottom: 5px;
+}
+
+.newspaper-subtitle {
+    font-size: 1.2rem;
+    color: #8b4513;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.newspaper-date {
+    color: var(--dark-red);
+    font-size: 1.1rem;
+    padding: 5px 15px;
+    display: inline-block;
+    background: rgba(255, 215, 0, 0.2);
+}
+
+.newspaper-grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 30px;
+    position: relative;
+}
+
+/* 头条文章样式 */
+.headline-article {
+    position: relative;
+    padding: 20px;
+    border: 1px solid rgba(139, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 0 50px rgba(250, 235, 215, 0.7);
+}
+
+.headline-title {
+    font-size: 2.4rem;
+    color: var(--dark-red);
+    margin-bottom: 15px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 3px double goldenrod;
+    line-height: 1.3;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.1);
+}
+
+.headline-meta {
+    text-align: right;
+    font-style: italic;
+    color: #8b4513;
+    margin: 10px 0;
+    padding-right: 20px;
+}
+
+.headline-image {
+    float: left;
+    margin: 0 20px 10px 0;
+    width: 220px;
+    height: 160px;
+    border: 3px solid var(--dark-red);
+    padding: 5px;
+    background: #fff;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    transform: rotate(-1deg);
+}
+
+.headline-content {
+    text-align: justify;
+    font-size: 1.35rem;
+    line-height: 2;
+    margin-top: 15px;
+    column-count: 2;
+    column-gap: 25px;
+    column-rule: 1px solid rgba(139, 0, 0, 0.2);
+}
+
+/* 报刊侧边栏 */
+.sidebar-column {
+    border-left: 2px dashed #8b4513;
+    padding-left: 20px;
+}
+
+.sidebar-section {
+    margin-bottom: 30px;
+}
+
+.sidebar-title {
+    font-size: 1.6rem;
+    color: var(--dark-red);
+    border-bottom: 2px solid goldenrod;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.sidebar-title::after {
+    content: "▶";
+    color: var(--dark-red);
+    position: absolute;
+    right: 0;
+    bottom: -2px;
+}
+
+.article-list li {
+    border-bottom: 1px dotted #8b4513;
+    padding: 8px 0;
+}
+
+.date-badge {
+    display: block;
+    background: var(--dark-red);
+    color: gold;
+    padding: 3px 10px;
+    font-size: 0.9rem;
+    width: max-content;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* 动态排版效果 */
+@keyframes newspaperGlow {
+    0% { box-shadow: 0 0 15px rgba(255, 81, 0, 0.4); }
+    100% { box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); }
+}
+
+.newspaper-section:hover {
+    animation: newspaperGlow 2s infinite alternate;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .newspaper-grid {
+        grid-template-columns: 1fr;
+    }
+    .headline-content {
+        column-count: 1;
+    }
+    .sidebar-column {
+        border-left: none;
+        border-top: 2px dashed #8b4513;
+        padding-left: 0;
+        padding-top: 20px;
+    }
+    .newspaper-title {
+        font-size: 2.5rem;
+    }
+}
+</style>
+    <title>红星报刊</title>
+    <link rel="icon" href="logo.jpg">
+</head>
+<body>
+    
+<!-- 报刊板块 -->
+<section class="newspaper-section">
+  <div class="newspaper-header">
+    <div class="newspaper-title">新官场现形记（小说）</div>
+    <div class="newspaper-subtitle">第1章</div>
+    <div class="newspaper-date">
+      <i class="fas fa-calendar-alt"></i> 2025年06月03日
+      <span style="margin:0 10px">|</span>
+      <i class="fas fa-map-pin"></i> 仅供站内参阅
+    </div>
+  </div>
+  
+  <div class="newspaper-grid">
+    <!-- 头条文章 -->
+    <div class="headline-article">
+      <h2 class="headline-title">第一幕 初心志异</h2>
+      <div class="headline-meta">作者 郑涵语</div>
+      
+      <div style="overflow:hidden">
+        <div class="headline-image">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 160'><rect width='220' height='160' fill='%23000'/><rect x='20' y='30' width='180' height='40' fill='darkred'/><rect x='20' y='90' width='180' height='40' fill='darkred'/><text x='110' y='55' font-size='14' fill='gold' text-anchor='middle'>为人民服务</text><text x='110' y='115' font-size='14' fill='gold' text-anchor='middle'>清正廉洁</text></svg>" alt="你猜？">
+        </div>
+        
+        <div class="headline-content">
+          <p>那本红皮书在抽屉里生了霉斑。</p>
+          
+          <p>我蹲在办公楼负一层的档案室翻找十五年来的会议记录时，它从故纸堆里突然跌落。扉页上的烫金大字已经剥落，露出底下灰白的纸浆，像一件被雨水泡发的寿衣。</p>
+          
+          <p>多精巧的隐喻啊。1998年那个闷热的盛夏，正是这本小册子在我掌心发烫。大学礼堂吊扇咯吱转动，汗水顺着脊椎沟壑流进扎人的的确良衬衫。台上领导每念一句誓词，台下就爆发出潮水般的掌声，我数到第三十七次抬手时，突然发现自己的掌纹里浸满了红色的颜料。</p>
+          
+          <p>"小同志很有干劲嘛！"人事处长拍着我肩膀说，他的手心散发着檀香皂的气味。后来我才知道，那香皂是纪委调查组惯用的款式。</p>
+          
+          <p>最初三个月，我总在深夜加班时反复擦拭办公桌上的党徽。老科长眯着醉眼笑话我："别擦太亮，当心照见自己的良心。"当时以为他在说酒话，直到五年后我接管他的办公室，才发现抽屉夹层里藏着三十七份不同版本的入党申请书，最早的那张落款是1976年。</p>
+<p>茶水间的蟑螂最懂与时俱进。它们从啃食会议纪要，渐渐学会了优先消化扶贫文件里的数字。某天我亲眼看见一只油光水滑的蟑螂叼走了"共同富裕"四个字，在墙根排出亮闪闪的铜屑。</p>
+<p>茶水间的蟑螂最懂与时俱进。它们从啃食会议纪要，渐渐学会了优先消化扶贫文件里的数字。某天我亲眼看见一只油光水滑的蟑螂叼走了"共同富裕"四个字，在墙根排出亮闪闪的铜屑。</p>
+<p>内容全为虚构</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 侧边栏 -->
+    <div class="sidebar-column">
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">革命简讯</h3>
+        <ul class="article-list">
+          
+          
+          
+          <li>
+            
+            <strong>暂时没有</strong></li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">国际战线</h3>
+        <ul class="article-list">
+          
+          
+          <li>暂时没有</li>
+          
+        </ul>
+      </div>
+      
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">公社通知</h3>
+        
+      </div>
+    </div>
+  </div>
+<div id="newspaper-particles" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;"></div></section>
+
+
+<section class="newspaper-section">
+  <div class="newspaper-header">
+    <div class="newspaper-title">新官场现形记（小说）</div>
+    <div class="newspaper-subtitle">第2章</div>
+    <div class="newspaper-date">
+      <i class="fas fa-calendar-alt"></i> 2025年06月03日
+      <span style="margin:0 10px">|</span>
+      <i class="fas fa-map-pin"></i> 仅供站内参阅
+    </div>
+  </div>
+  
+  <div class="newspaper-grid">
+    <!-- 头条文章 -->
+    <div class="headline-article">
+      <h2 class="headline-title">第二幕 数字屠宰场（胡言乱语建议直接跳过）</h2>
+      <div class="headline-meta">作者 郑涵语</div>
+      
+      <div style="overflow:hidden">
+        <div class="headline-image">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 160'><rect width='220' height='160' fill='%23000'/><rect x='20' y='30' width='180' height='40' fill='darkred'/><rect x='20' y='90' width='180' height='40' fill='darkred'/><text x='110' y='55' font-size='14' fill='gold' text-anchor='middle'>人民实业家</text><text x='110' y='115' font-size='14' fill='gold' text-anchor='middle'>效忠人民</text></svg>" alt="你猜？">
+        <img src="gfx/baokan/mofan.jpg" alt="你猜？"></div>
+        
+        <div class="headline-content">
+          
+          
+          <p>上午9:17 信贷审批会 王科长把地产集团的抵押物评估报告第三页递给众人传阅。纸质文件显示某烂尾商业体估值28亿，此刻投影仪上的电子版却显示42亿。没有人抬头核对——除了新调来的风险监督员小李，他正用红笔圈出差异时，行政部突然通知他参加为期三个月的"同业交流学习"。</p><p>11:03 后台系统操作间 科技部小张接到副行长手写便签："今日17点前完成贷款数据迁移"。他键入的命令包括：1)将23户钢铁贸易公司的行业类别变更为"跨境电商"；2)把授信到期日统一延后至2022年12月31日。屏幕右下角弹出财政部的行业支持政策弹窗，正好遮住了企业征信报告里62次被法院执行的记录。</p>
+          
+          
+          
+          <p>14:35 贵宾接待室 录音笔在果盘下忠实记录： "刘总，您这3亿'绿色农业贷款'的审批确实有难度..." "听说令爱在英国读建筑？巧了，我行伦敦分行刚成立文化基金会" "您看这样，先把农药厂地块划进乡村振兴示范园规划..." 茶杯碰撞声中，打印机自动输出盖着七个部门章的同意书。</p>
+          
+          <p>22:48 支行监控盲区 运钞车接走了三个标着"凭证归档"的箱子。保安老秦的交接单写着"销毁作废传票"，但车载GPS显示目的地是三十公里外的私募基金办公楼。月光照亮车厢里散落的纸片，某张贷审会表决票背面，还粘着未撕干净的"反对票"标签。</p>
+
+
+<p>内容全为虚构</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 侧边栏 -->
+    <div class="sidebar-column">
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">革命简讯</h3>
+        <ul class="article-list">
+          
+          
+          
+          <li>
+            
+            <strong>暂时没有</strong></li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">国际战线</h3>
+        <ul class="article-list">
+          
+          
+          <li>暂时没有</li>
+          
+        </ul>
+      </div>
+      
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">公社通知</h3>
+        
+      </div>
+    </div>
+  </div>
+<div id="newspaper-particles" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;"></div></section><script>
+// 添加报刊专属粒子效果
+document.addEventListener('DOMContentLoaded', () => {
+  const newspaperSection = document.querySelector('.newspaper-section');
+  newspaperSection.innerHTML += `<div id="newspaper-particles" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;"></div>`;
+  
+  particlesJS('newspaper-particles', {
+    particles: {
+      number: { value: 30 },
+      color: { value: "#ff0000" },
+      opacity: { value: 0.15 },
+      size: { value: 2 },
+      move: { speed: 1 }
+    }
+  });
+});
+</script>
+
+</body></html>
