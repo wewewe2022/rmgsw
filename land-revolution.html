@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>土地革命新阶段 - 人民公社网</title>
+    <link rel="stylesheet" type="icon" href="gfx/imajp/logo.jpg">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        /* 基础样式 - 与主站一致 */
+        :root {
+            --primary-red: #d60000;
+            --dark-red: #8b0000;
+            --gold: #ffd700;
+            --bg-light: #fff4f4;
+        }
+        
+        body {
+            font-family: 'SimSun', 'STKaiti', serif;
+            background: var(--bg-light);
+            color: #333;
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        #land-particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, #2a0e0e 0%, #5a1f1f 100%);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        /* 土地革命专属头部 */
+        .land-header {
+            text-align: center;
+            padding: 50px 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="60" viewBox="0 0 100 60"><path d="M0,0 Q50,30 100,0 L100,60 L0,60 Z" fill="rgba(139,0,0,0.7)"/></svg>') no-repeat bottom center;
+            background-size: 200% 100%;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .land-title {
+            font-size: 3.2rem;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .land-title::before, .land-title::after {
+            content: "✊";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+        
+        .land-title::before {
+            left: -50px;
+        }
+        
+        .land-title::after {
+            right: -50px;
+        }
+        
+        .land-subtitle {
+            font-size: 1.4rem;
+            color: #ffcc66;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            text-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+            padding: 0 20px;
+        }
+        
+        /* 中央内容区块 */
+        .land-content {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 5px 30px rgba(139, 0, 0, 0.3);
+            position: relative;
+            border: 1px solid #e5b7b7;
+        }
+        
+        .land-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold), var(--dark-red));
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--dark-red);
+            border-bottom: 2px solid #e5b7b7;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            position: relative;
+            margin-top: 40px;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: var(--dark-red);
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            color: var(--dark-red);
+        }
+        
+        /* 革命理论核心区域 */
+        .theory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .theory-card {
+            background: #fffaf0;
+            border: 1px solid #e5b7b7;
+            border-radius: 5px;
+            padding: 25px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .theory-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(214, 0, 0, 0.2);
+            border-color: var(--dark-red);
+        }
+        
+        .theory-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, var(--gold), var(--dark-red));
+        }
+        
+        .theory-card h3 {
+            font-size: 1.4rem;
+            color: var(--dark-red);
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 3px solid var(--dark-red);
+        }
+        
+        .theory-content {
+            line-height: 1.8;
+            color: #5a3a3a;
+        }
+        
+        /* 革命实践案例 */
+        .revolution-case {
+            background: linear-gradient(to bottom right, rgba(255, 247, 230, 0.8), rgba(255, 240, 215, 0.8));
+            border-radius: 8px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 2px double var(--dark-red);
+            position: relative;
+        }
+        
+        .case-title {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 5px 20px;
+            font-size: 1.3rem;
+            color: var(--dark-red);
+            border: 2px solid var(--dark-red);
+            border-radius: 30px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .case-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid var(--dark-red);
+        }
+        
+        .case-item h4 {
+            color: var(--dark-red);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .case-item h4 i {
+            margin-right: 8px;
+            color: #8b4513;
+        }
+        
+        /* 数据统计模块 */
+        .data-section {
+            background: rgba(255, 245, 245, 0.9);
+            border-radius: 8px;
+            padding: 30px;
+            margin: 40px 0;
+            position: relative;
+            border: 1px solid #e5b7b7;
+        }
+        
+        .data-title {
+            text-align: center;
+            font-size: 1.4rem;
+            color: var(--dark-red);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0 20px;
+        }
+        
+        .data-title::before,
+        .data-title::after {
+            content: "★";
+            color: var(--gold);
+            margin: 0 10px;
+        }
+        
+        .data-row {
+            display: flex;
+            margin: 20px 0;
+            align-items: center;
+        }
+        
+        .data-label {
+            flex: 0 0 200px;
+            font-weight: bold;
+            color: var(--dark-red);
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .data-label::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            background: var(--dark-red);
+            border-radius: 50%;
+        }
+        
+        .data-progress {
+            flex-grow: 1;
+            height: 25px;
+            background: #f0d7d7;
+            border-radius: 1px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 0 5px rgba(139, 0, 0, 0.2);
+        }
+        
+        .data-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--dark-red), #b30000);
+            width: 0;
+            transition: width 1.5s ease-in-out;
+            position: relative;
+        }
+        
+        .data-value {
+            position: absolute;
+            right: 10px;
+            top: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* 时间轴 */
+        .era-timeline {
+            margin: 50px 0;
+            position: relative;
+            padding: 20px 0 0 0;
+        }
+        
+        .era-timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+        }
+        
+        .era-item {
+            position: relative;
+            margin-bottom: 60px;
+            width: calc(50% - 40px);
+            box-sizing: border-box;
+        }
+        
+        .era-item:nth-child(odd) {
+            left: calc(50% + 40px);
+        }
+        
+        .era-item:nth-child(even) {
+            left: 0;
+        }
+        
+        .era-year {
+            position: absolute;
+            top: 0;
+            width: 100px;
+            background: var(--dark-red);
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+        
+        .era-item:nth-child(odd) .era-year {
+            right: calc(100% + 25px);
+        }
+        
+        .era-item:nth-child(even) .era-year {
+            left: calc(100% + 25px);
+        }
+        
+        .era-content {
+            background: rgba(255, 240, 230, 0.9);
+            border: 2px solid var(--dark-red);
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .era-content h4 {
+            color: var(--dark-red);
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #8b4513;
+        }
+        
+        /* 革命号召区 */
+        .call-to-action {
+            text-align: center;
+            background: rgba(214, 0, 0, 0.1);
+            padding: 40px 30px;
+            border-radius: 8px;
+            margin: 50px 0;
+            border: 2px solid var(--gold);
+        }
+        
+        .action-title {
+            font-size: 1.8rem;
+            color: var(--dark-red);
+            margin-bottom: 20px;
+        }
+        
+        .action-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--dark-red), #b50000);
+            color: white;
+            font-size: 1.2rem;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            border: 3px solid var(--gold);
+            box-shadow: 0 8px 20px rgba(214, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .action-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(214, 0, 0, 0.6);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .land-title {
+                font-size: 2.2rem;
+                letter-spacing: 3px;
+            }
+            
+            .land-title::before, 
+            .land-title::after {
+                display: none;
+            }
+            
+            .theory-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .era-timeline::before {
+                left: 20px;
+            }
+            
+            .era-item, .era-item:nth-child(odd), .era-item:nth-child(even) {
+                width: calc(100% - 50px);
+                left: 40px;
+                margin-right: 0;
+            }
+            
+            .era-item:nth-child(odd) .era-year,
+            .era-item:nth-child(even) .era-year {
+                position: relative;
+                left: 0;
+                right: auto;
+                margin-bottom: 15px;
+                width: 100%;
+                text-align: left;
+                border-radius: 0;
+                background: linear-gradient(90deg, var(--dark-red), #b30000);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 土地革命粒子背景 -->
+    <div id="land-particles">
+        <canvas class="particles-js-canvas-el" width="742" height="642" style="width: 100%; height: 100%;"></canvas>
+    </div>
+    
+    <div class="container">
+        <!-- 头部标题 -->
+        <header class="land-header">
+            <h1 class="land-title">土地革命新阶段</h1>
+            <div class="land-subtitle">
+                在资本下乡侵蚀集体所有制的今天，如何捍卫革命果实？如何在新时代推进土地集体化进程？这份纲领性文件告诉你答案！
+            </div>
+        </header>
+        
+        <!-- 核心内容 -->
+        <main class="land-content">
+            <!-- 引言 -->
+            <section>
+                <h2 style="color:var(--dark-red);text-align:center;position:relative;padding-bottom:15px;margin-bottom:30px;">
+                    <span style="position:relative;display:inline-block;">无产阶级土地革命的纲领性文件
+                        <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:80%;height:3px;background:linear-gradient(to right, transparent, var(--dark-red), transparent);"></span>
+                    </span>
+                </h2>
+                
+                <p style="font-size:1.3rem;color:#5a3a3a;text-align:center;font-style:italic;margin-bottom:40px;position:relative;padding:0 20px;">
+                    "农村土地问题是革命的根本问题，谁不研究农民问题，谁就不能理解中国革命；谁不解决土地问题，谁就不能赢得农民"
+                    <span style="display:block;text-align:right;margin-top:10px;color:var(--dark-red);">—— 毛泽东</span>
+                </p>
+            </section>
+            
+            <!-- 革命理论核心 -->
+            <section>
+                <h2 class="section-title"><i class="fas fa-book-open"></i> 革命理论基础</h2>
+                
+                <div class="theory-grid">
+                    <div class="theory-card">
+                        <h3>新阶段的本质特征</h3>
+                        <div class="theory-content">
+                            <p>▲ 土地资本化程度加深：全国农业用地租赁流转率达42.7%，其中63%被工商资本控制</p>
+                            <p>▲ 农村阶级分化加剧：5%的"新型经营主体"控制37%可流转土地资源</p>
+                            <p>▲ 小农破产加速：2020-2024年，自耕农户以年均7.8%速度减少</p>
+                            <p>▲ 集体所有制形式化：78%农村集体不具备土地配置决定权</p>
+                        </div>
+                    </div>
+                    
+                    <div class="theory-card">
+                        <h3>土地革命新内涵</h3>
+                        <div class="theory-content">
+                            <p>★ 斗争焦点：从"地主阶级"转向"资本-官僚结合体"</p>
+                            <p>★ 革命对象：资本下乡形成的"农业托拉斯"组织</p>
+                            <p>★ 革命主体：返乡农民工+留乡贫农的新联盟</p>
+                            <p>★ 革命形式：土地经营权集体化 + 农产品定价权争夺</p>
+                        </div>
+                    </div>
+                    
+                    <div class="theory-card">
+                        <h3>七大行动纲领</h3>
+                        <div class="theory-content">
+                            <p>1. 重建"农会"土地管理核心地位</p>
+                            <p>2. 制定《集体建设用地流转禁令》</p>
+                            <p>3. 发动"土地确权还农"运动</p>
+                            <p>4. 建立农产品统购统销体系</p>
+                            <p>5. 创建集体经济互助联盟</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 革命实践案例 -->
+            <section class="revolution-case">
+                <div class="case-title">革命实践案例</div>
+                
+                <div class="case-grid">
+                    <div class="case-item">
+                        <h4><i class="fas fa-map-marked-alt"></i> 湖南红旗村经验</h4>
+                        <p>村民接管被资本租用的300亩柑橘园，成立"战斗生产队"，建立12个革命责任区...</p>
+                    </div>
+                    
+                    <div class="case-item">
+                        <h4><i class="fas fa-tractor"></i> 河南夺田斗争</h4>
+                        <p>反抗食品公司强行圈地，500农民组建"护地先锋队"，成功夺回耕地1800亩...</p>
+                    </div>
+                    
+                    <div class="case-item">
+                        <h4><i class="fas fa-users"></i> 浙江公社联盟</h4>
+                        <p>3县47村组建浙东红色农盟，共享农机资源，建立粮食统购体系，拒绝中间商剥削...</p>
+                    </div>
+                    
+                    <div class="case-item">
+                        <h4><i class="fas fa-balance-scale"></i> 吉林法律斗争</h4>
+                        <p>农民律师团引用1970年代"集体用地不可分割"条款，推翻12起非法转让案...</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 统计数据 -->
+            <section class="data-section">
+                <h3 class="data-title">土地革命关键数据战报</h3>
+                
+                <div>
+                    <div class="data-row">
+                        <div class="data-label">农民组织化程度</div>
+                        <div class="data-progress">
+                            <div class="data-bar" id="data1" style="width: 0;"></div>
+                            <div class="data-value">37.2%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-row">
+                        <div class="data-label">集体土地回收率</div>
+                        <div class="data-progress">
+                            <div class="data-bar" id="data2" style="width: 0;"></div>
+                            <div class="data-value">18.6%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-row">
+                        <div class="data-label">资本控制农业地</div>
+                        <div class="data-progress">
+                            <div class="data-bar" id="data3" style="width: 0;"></div>
+                            <div class="data-value">63.4%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-row">
+                        <div class="data-label">青年返乡率</div>
+                        <div class="data-progress">
+                            <div class="data-bar" id="data4" style="width: 0;"></div>
+                            <div class="data-value">7.8%↑</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 历史演进 -->
+            <section class="era-timeline">
+                <h2 class="section-title"><i class="fas fa-history"></i> 土地革命历史演进</h2>
+                
+                <!-- 时间轴项目 -->
+                <div class="era-item">
+                    <div class="era-year">1927-1937</div>
+                    <div class="era-content">
+                        <h4>打土豪分田地</h4>
+                        <p>苏区实施《井冈山土地法》，提出"耕者有其田"，农民赤卫队没收地主土地分配贫雇农</p>
+                    </div>
+                </div>
+                
+                <div class="era-item">
+                    <div class="era-year">1947-1952</div>
+                    <div class="era-content">
+                        <h4>土地改革运动</h4>
+                        <p>颁布《中国土地法大纲》，没收地主阶级土地分配给无地农民，实现耕者有其田</p>
+                    </div>
+                </div>
+                
+                <div class="era-item">
+                    <div class="era-year">1953-1958</div>
+                    <div class="era-content">
+                        <h4>农业合作化</h4>
+                        <p>从互助组到高级社，最终实现人民公社"三级所有、队为基础"的集体所有制</p>
+                    </div>
+                </div>
+                
+                <div class="era-item">
+                    <div class="era-year">1978-1996</div>
+                    <div class="era-content">
+                        <h4>家庭联产承包</h4>
+                        <p>"包产到户"政策实施，集体土地由农户承包经营，保留集体所有权</p>
+                    </div>
+                </div>
+                
+                <div class="era-item">
+                    <div class="era-year">2014至今</div>
+                    <div class="era-content">
+                        <h4>土地确权与流转</h4>
+                        <p>实行"三权分置"，允许土地经营权流转，资本大面积介入农业用地经营</p>
+                    </div>
+                </div>
+                
+                <div class="era-item">
+                    <div class="era-year">2023起</div>
+                    <div class="era-content">
+                        <h4>新土地革命阶段</h4>
+                        <p>工人阶级与农民阶级重新联合，发起土地经营权回收运动，重建集体经济实体</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 革命号召 -->
+            <section class="call-to-action">
+                <h3 class="action-title">加入新土地革命先锋队！</h3>
+                <p>我们正在召集：</p>
+                <ul style="display:inline-block;text-align:left;max-width:500px;margin:20px auto;font-size:1.1rem;">
+                    <li>✊ 具备阶级觉悟的返乡青年</li>
+                    <li>✊ 了解土地政策的法律工作者</li>
+                    <li>✊ 有组织能力的农村骨干</li>
+                    <li>✊ 掌握农业技术的知识分子</li>
+                </ul>
+                <p style="font-size:1.2rem;">革命不是请客吃饭！立即行动：</p>
+                <a href="mailto:wewewe20222022@163.com" class="action-button">申请加入土地革命先锋队</a>
+            </section>
+            
+            <!-- 底部标记 -->
+            <div style="text-align:center;margin-top:50px;color:#999;font-size:0.9rem;">
+                <hr style="border-top:1px solid #e5b7b7;margin-bottom:20px;">
+                土地革命研究组 | 2025年6月 | 内部参考资料
+            </div>
+        </main>
+    </div>
+    
+    <!-- 粒子效果初始化 -->
+    <script>
+        // 土地革命专属粒子参数
+        particlesJS('land-particles', {
+            particles: {
+                number: { value: 70 },
+                color: { value: "#ff0000" },
+                opacity: { value: 0.25 },
+                size: { value: 3 },
+                line_linked: {
+                    enable: true,
+                    distance: 120,
+                    color: "#a00000",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: { speed: 1.5 }
+            },
+            interactivity: {
+                events: {
+                    onhover: { enable: true, mode: "repulse" }
+                }
+            }
+        });
+        
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            // 进度条动画
+            animateProgressBars();
+            
+            // 时间轴动画
+            const items = document.querySelectorAll('.era-item');
+            items.forEach((item, i) => {
+                setTimeout(() => {
+                    item.style.opacity = "1";
+                    item.style.transform = "translateY(0)";
+                }, 500 + i * 300);
+            });
+        });
+        
+        // 进度条动画函数
+        function animateProgressBars() {
+            const bars = [
+                { id: "data1", width: "37.2%" },
+                { id: "data2", width: "18.6%" },
+                { id: "data3", width: "63.4%" },
+                { id: "data4", width: "80%" }
+            ];
+            
+            let delay = 300;
+            bars.forEach(bar => {
+                setTimeout(() => {
+                    document.getElementById(bar.id).style.width = bar.width;
+                }, delay);
+                delay += 400;
+            });
+        }
+    </script>
+</body>
+</html>

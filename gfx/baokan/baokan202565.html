@@ -1,0 +1,296 @@
+<html><head>
+<style>
+/* 报刊专属样式 - 报纸复古风 */
+.newspaper-section {
+    position: relative;
+    margin-top: 50px;
+    padding: 30px;
+    background: linear-gradient(to bottom, #fffdf0, #f9f1d3);
+    border: 8px double var(--dark-red);
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.4);
+    font-family: 'STSong', 'SimSun', serif;
+    transform: rotate(0.5deg);
+    z-index: 20;
+}
+
+.newspaper-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="5" y="45" font-size="22" fill="%23d60000">内部参考</text><text x="5" y="75" font-size="22" fill="%238b0000">注意保管</text><rect width="100" height="100" stroke="%23d60000" stroke-width="2" fill="none"/></svg>');
+    opacity: 0.7;
+}
+
+.newspaper-header {
+    position: relative;
+    text-align: center;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    border-bottom: 3px double var(--dark-red);
+}
+
+.newspaper-header::after {
+    content: "★";
+    color: var(--dark-red);
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(20deg);
+    font-size: 24px;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+.newspaper-title {
+    font-size: 3.8rem;
+    font-weight: bold;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--dark-red);
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+    margin-bottom: 5px;
+}
+
+.newspaper-subtitle {
+    font-size: 1.2rem;
+    color: #8b4513;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.newspaper-date {
+    color: var(--dark-red);
+    font-size: 1.1rem;
+    padding: 5px 15px;
+    display: inline-block;
+    background: rgba(255, 215, 0, 0.2);
+}
+
+.newspaper-grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 30px;
+    position: relative;
+}
+
+/* 头条文章样式 */
+.headline-article {
+    position: relative;
+    padding: 20px;
+    border: 1px solid rgba(139, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 0 50px rgba(250, 235, 215, 0.7);
+}
+
+.headline-title {
+    font-size: 2.4rem;
+    color: var(--dark-red);
+    margin-bottom: 15px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 3px double goldenrod;
+    line-height: 1.3;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.1);
+}
+
+.headline-meta {
+    text-align: right;
+    font-style: italic;
+    color: #8b4513;
+    margin: 10px 0;
+    padding-right: 20px;
+}
+
+.headline-image {
+    float: left;
+    margin: 0 20px 10px 0;
+    width: 220px;
+    height: 160px;
+    border: 3px solid var(--dark-red);
+    padding: 5px;
+    background: #fff;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    transform: rotate(-1deg);
+}
+
+.headline-content {
+    text-align: justify;
+    font-size: 1.35rem;
+    line-height: 2;
+    margin-top: 15px;
+    column-count: 2;
+    column-gap: 25px;
+    column-rule: 1px solid rgba(139, 0, 0, 0.2);
+}
+
+/* 报刊侧边栏 */
+.sidebar-column {
+    border-left: 2px dashed #8b4513;
+    padding-left: 20px;
+}
+
+.sidebar-section {
+    margin-bottom: 30px;
+}
+
+.sidebar-title {
+    font-size: 1.6rem;
+    color: var(--dark-red);
+    border-bottom: 2px solid goldenrod;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.sidebar-title::after {
+    content: "▶";
+    color: var(--dark-red);
+    position: absolute;
+    right: 0;
+    bottom: -2px;
+}
+
+.article-list li {
+    border-bottom: 1px dotted #8b4513;
+    padding: 8px 0;
+}
+
+.date-badge {
+    display: block;
+    background: var(--dark-red);
+    color: gold;
+    padding: 3px 10px;
+    font-size: 0.9rem;
+    width: max-content;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* 动态排版效果 */
+@keyframes newspaperGlow {
+    0% { box-shadow: 0 0 15px rgba(255, 81, 0, 0.4); }
+    100% { box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); }
+}
+
+.newspaper-section:hover {
+    animation: newspaperGlow 2s infinite alternate;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .newspaper-grid {
+        grid-template-columns: 1fr;
+    }
+    .headline-content {
+        column-count: 1;
+    }
+    .sidebar-column {
+        border-left: none;
+        border-top: 2px dashed #8b4513;
+        padding-left: 0;
+        padding-top: 20px;
+    }
+    .newspaper-title {
+        font-size: 2.5rem;
+    }
+}
+</style>
+    <title>红星报刊</title>
+    <link rel="icon" href="logo.jpg">
+</head>
+<body>
+    
+<!-- 报刊板块 -->
+<section class="newspaper-section">
+  <div class="newspaper-header">
+    <div class="newspaper-title">新官场现形记（小说）</div>
+    <div class="newspaper-subtitle">第3章</div>
+    <div class="newspaper-date">
+      <i class="fas fa-calendar-alt"></i> 2025年06月05日
+      <span style="margin:0 10px">|</span>
+      <i class="fas fa-map-pin"></i> 仅供站内参阅
+    </div>
+  </div>
+  
+  <div class="newspaper-grid">
+    <!-- 头条文章 -->
+    <div class="headline-article">
+      <h2 class="headline-title">第三幕 法辨</h2>
+      <div class="headline-meta">作者 郑涵语</div>
+      
+      <div style="overflow:hidden">
+        
+        
+        <div class="headline-content">
+          <p>七月流火，区法院卷宗库的空调竟比殡仪馆更冷。书记员小林归档时忽觉刺痛，展开某份《土地强拆执行裁定》，见"集体所有"四字旁积着暗红锈斑——却是去年信访户老孙头溅在封面的血氧化了颜色。</p>
+          
+          <p>民二庭的落地窗颇有深意。午时三刻日光直射，那玻璃便将《物权法》条文投映在法官袍上。张庭长在审判席站定时，"公民合法财产不受侵犯"的金纹恰恰烙在他后背，待其签批某地产集团解封申请时，光斑早游移成"地方经济优先"的隶书。</p>
+          
+          <p>最奇在刑事调解室。原告收到三十万赔偿金的收据时，陪审员老赵从老花镜上方觑见怪异：调解书上"自愿和解"的"自"字，起笔处隐约藏着"被"的钩划。他举手欲言，法警腰间钥匙串哗啦作响，正警醒着本月绩效工资尚未发放。</p>
+          
+          <p>执行局新添的车辆识别系统堪称神目。某日扣押欠债民企运输车时，扫描仪突然将"老赖"车牌辨成"重点保护企业"。局长亲查代码库，竟发现特殊名单——凡企业名含"鑫""鼎""隆"者自动豁免。那夜保安见清洁工阿婆跪地擦拭识别镜头，次日系统便恢复了正常。</p>
+          
+          
+
+
+
+
+<p>"内容纯属虚构，任何雷同均证明中国特色社会主义优越性"</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 侧边栏 -->
+    <div class="sidebar-column">
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">革命简讯</h3>
+        <ul class="article-list">
+          
+          
+          
+          <li>
+            
+            <strong>暂时没有</strong></li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">国际战线</h3>
+        <ul class="article-list">
+          
+          
+          <li>暂时没有</li>
+          
+        </ul>
+      </div>
+      
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">公社通知</h3>
+        
+      </div>
+    </div>
+  </div>
+<div id="newspaper-particles" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;"></div><div id="newspaper-particles" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;"></div><div id="newspaper-particles" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;"></div><div id="newspaper-particles" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;"></div></section>
+
+
+<script>
+// 添加报刊专属粒子效果
+document.addEventListener('DOMContentLoaded', () => {
+  const newspaperSection = document.querySelector('.newspaper-section');
+  newspaperSection.innerHTML += `<div id="newspaper-particles" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;"></div>`;
+  
+  particlesJS('newspaper-particles', {
+    particles: {
+      number: { value: 30 },
+      color: { value: "#ff0000" },
+      opacity: { value: 0.15 },
+      size: { value: 2 },
+      move: { speed: 1 }
+    }
+  });
+});
+</script>
+
+</body></html>
